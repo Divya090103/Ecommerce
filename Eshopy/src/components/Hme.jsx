@@ -1,8 +1,15 @@
 import React from "react";
 import Herosection from "./Herosection";
-const Hme=(props)=>{
+import Features from "./Features";
+import Trust from "./Trust";
+const Hme=()=>{
+  const data="WEB STORE"
   return(
-<Herosection title={props.title} />
+    <>
+<Herosection title={data} />
+<Features/>
+<Trust/>
+</>
   );
 }
 export default Hme;
