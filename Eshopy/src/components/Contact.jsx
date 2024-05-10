@@ -20,7 +20,7 @@ width="100%" height="450" style={{border:0}} allowFullScreen="" loading="lazy" r
       <br/>
       <input type="email" placeholder="Email" autoComplete="off" required name="mail" className="mt-3"/>
       <br/>
-      <textarea  className="mt-3"name="Enter your message" id=""cols="60" rows="6"></textarea>
+      <textarea autoComplete="off" className="mt-3"name="Enter your message" id=""cols="60" rows="6"></textarea>
       <br/>
     <button className="button-17">CLICK HERE </button> 
     </form>

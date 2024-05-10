@@ -10,9 +10,10 @@ import Cart from './components/Cart'
 import Hme from './components/Hme'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
-
+import {Appprovider ,Appcontext} from './context/Productcontext'
 function App() {
   return (
+    <Appprovider>
     <BrowserRouter>
     <Navbar/>
     <Routes>
@@ -27,6 +28,7 @@ function App() {
     </Routes>
     <Footer/>
     </BrowserRouter>
+    </Appprovider>
   )
 }
 

@@ -26,7 +26,7 @@ const Navbar=()=>{
           <li><NavLink  className="list me-5 fs-5" to='/about'>About</NavLink></li>
           <li><NavLink  className="list me-5 fs-5" to='/product'>Products</NavLink></li>
           <li><NavLink  className="list me-5 fs-5" to='/contact'>Contact</NavLink></li>
-          <li><button className="btn btn-primary">Login</button></li>
+          <li><button className="button-29">Login</button></li>
           <li className="icon text-light ms-5"><NavLink className="fs-5 list" to='/cart'><FaCartShopping /><span className="cart-items">9</span></NavLink></li>
 
         </ul>
