@@ -18,7 +18,7 @@ const Herosection=(props)=>{
       </div>
       <div className="col-lg-6 col-md-12 image">
         <div className="backg "></div>
-        <img className="hero" src="/images/hero.webp" alt="" />
+        <img className="hero" src="/images/mid.jpg" alt="" />
       </div>
     </div>
     

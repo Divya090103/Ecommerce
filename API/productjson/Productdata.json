@@ -1,0 +1,90 @@
+[
+  {
+    "brand":"Samsung",
+    "category":"Phone",
+    "description":"lorem ewpfoiwn",
+    "discountPercentage":9.8,
+    "images":["","",""],
+    "price":12000,
+    "rating":2.4,
+    "stock":4000,
+    "name":"Samsung S25"
+  },
+  {
+    "brand":"Samsung",
+    "category":"Laptop",
+    "description":"lorem ewpfoiwn",
+    "discountPercentage":3.1,
+    "images":["","",""],
+    "price":120000,
+    "rating":4.4,
+    "stock":4000,
+    "name":"Samsung S20"
+  },
+  {
+    "brand":"Samsung",
+    "category":"ipadx",
+    "description":"lorem ewpfoiwn",
+    "discountPercentage":9.8,
+    "images":["","",""],
+    "price":12000,
+    "rating":2.4,
+    "stock":4000,
+    "name":"Samsung S25"
+  },
+  {
+    "brand":"Samsung",
+    "category":"Phone",
+    "description":"lorem ewpfoiwn",
+    "discountPercentage":9.8,
+    "images":["","",""],
+    "price":12000,
+    "rating":2.4,
+    "stock":4000,
+    "name":"Samsung S25"
+  }
+  , {
+    "brand":"Samsung",
+    "category":"Phone",
+    "description":"lorem ewpfoiwn",
+    "discountPercentage":9.8,
+    "images":["","",""],
+    "price":12000,
+    "rating":2.4,
+    "stock":4000,
+    "name":"Samsung S25"
+  },
+  {
+    "brand":" Channel",
+    "category":"Phone",
+    "description":"lorem ewpfoiwn",
+    "discountPercentage":9.8,
+    "images":["","",""],
+    "price":12000,
+    "rating":2.4,
+    "stock":4000,
+    "name":"Samsung S25"
+  }
+  , {
+    "brand":"Samsung",
+    "category":"Phone",
+    "description":"lorem ewpfoiwn",
+    "discountPercentage":9.8,
+    "images":["","",""],
+    "price":12000,
+    "rating":2.4,
+    "stock":4000,
+    "name":"Samsung S25"
+  }
+  , {
+    "brand":"Apple",
+    "category":"Laptop",
+    "description":"lorem ewpfoiwn",
+    "discountPercentage":9.8,
+    "images":["","",""],
+    "price":120098749320,
+    "rating":4.9,
+    "stock":4000,
+    "name":"Samsung S25"
+  }
+]
