@@ -1,6 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router";
 import { Appcontext } from "../context/Productcontext";
+import PageNavigation from "./PageNavigation";
+import { FaTruck } from "react-icons/fa";
+import { TbReplace } from "react-icons/tb";
+import { PiSealCheckFill } from "react-icons/pi";
+import MyImage from "./MyImage";
+import Rating from "./Rating";
 const Singleproduct = () => {
   //get element from the url
   const { id } = useParams();
@@ -8,6 +14,7 @@ const Singleproduct = () => {
   console.log("the id is" + id);
   const { getsingleproduct, issingleload, singleproduct, singleerror } =
     useContext(Appcontext);
+  console.log(singleproduct.image);
   useEffect(() => {
     getsingleproduct(`${API}?id=${id}`);
   }, []);
@@ -15,10 +22,65 @@ const Singleproduct = () => {
   return (
     <>
       <section>
-        <div className="container">
-          <h1>/images/{singleproduct?.name}.jpg</h1>
-          <img src={`/images/samsung s20.jpg`} alt={singleproduct?.name} />
-          <h1>{singleproduct?.description}</h1>
+        <PageNavigation />
+        <div className="container text-left mt-5">
+          <div className="row">
+            <div className="col-lg-6 col-md-12">
+              <MyImage myimage={singleproduct.image} />
+            </div>
+            <div className="col-lg-6 col-md-12">
+              <div>
+                <h1>{singleproduct?.name}</h1>
+                <Rating
+                  stars={singleproduct?.stars}
+                  review={singleproduct?.reviews}
+                />
+                <p className="text-secondary">
+                  MRP:
+                  <del>
+                    {" "}
+                    {new Intl.NumberFormat("en-IN", {
+                      style: "currency",
+                      currency: "INR",
+                      maximumFractionDigits: 2,
+                    }).format((singleproduct.price + 200000) / 100)}
+                  </del>
+                </p>
+                <h5 className="text-primary">
+                  Deal of the Day:
+                  {new Intl.NumberFormat("en-IN", {
+                    style: "currency",
+                    currency: "INR",
+                    maximumFractionDigits: 2,
+                  }).format(singleproduct.price / 100)}
+                </h5>
+                <p className="text-secondary">{singleproduct?.description}</p>
+              </div>
+              <div className="d-flex align-items-center justify-content-between mt-4">
+                <div className="text-center">
+                  <TbReplace className="icon fs-2" />
+                  <p>30 Days Replacement</p>
+                </div>
+                <div className="text-center">
+                  <FaTruck className="icon fs-2" />
+                  <p>Free Delivery</p>
+                </div>
+                <div className="text-center">
+                  <PiSealCheckFill className="icon fs-2" />
+                  <p>2year Warranty</p>
+                </div>
+                <div className="text-center">
+                  <FaTruck className="icon fs-2" />
+                  <p>Elitte Delivery</p>
+                </div>
+              </div>
+              <hr />
+              <div>
+                <h3>Available:In stock</h3>
+                <h3>Brand:{singleproduct?.company}</h3>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

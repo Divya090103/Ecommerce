@@ -310,3 +310,11 @@ position:relative;
   width:100%; /* Expand width on hover */
   cursor: pointer;
 }
+.row-img img{
+  width: 150px;
+  height: 100px;
+}
+.row-img div .main-img{
+  width: 300px;
+  height: auto;
+}
