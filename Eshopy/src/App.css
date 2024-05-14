@@ -318,3 +318,8 @@ position:relative;
   width: 300px;
   height: auto;
 }
+.cnt{
+  border: none;
+  background-color: transparent;
+  margin-left: 10px;
+}

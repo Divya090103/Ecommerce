@@ -7,6 +7,8 @@ import { TbReplace } from "react-icons/tb";
 import { PiSealCheckFill } from "react-icons/pi";
 import MyImage from "./MyImage";
 import Rating from "./Rating";
+import Color from "./AddCart";
+import AddCart from "./AddCart";
 const Singleproduct = () => {
   //get element from the url
   const { id } = useParams();
@@ -76,9 +78,12 @@ const Singleproduct = () => {
               </div>
               <hr />
               <div>
-                <h3>Available:In stock</h3>
-                <h3>Brand:{singleproduct?.company}</h3>
+                <h5>Available:In stock</h5>
+                <h5>Brand:{singleproduct?.company}</h5>
               </div>
+              <hr />
+              <div>{singleproduct.stock>0&&<AddCart product={singleproduct} />}</div>
+
             </div>
           </div>
         </div>
