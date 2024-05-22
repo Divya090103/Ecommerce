@@ -22,12 +22,12 @@ const Counter = ({ stock }) => {
 
   return (
     <p className="fs-3">
-      <button onClick={handleClick1} className="fs-3 cnt me-1">
-        +
+      <button onClick={handleClick2} className="fs-3 cnt me-1">
+        -
       </button>
       {counter}
-      <button onClick={handleClick2} className="fs-3 cnt">
-        -
+      <button onClick={handleClick1} className="fs-3 cnt">
+        +
       </button>
     </p>
   );
