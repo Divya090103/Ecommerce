@@ -1,6 +1,7 @@
 import React from "react";
 import { UseFiltercontext } from "../context/Filtercontext";
 import Filter from "./Flter";
+import Sort from "./Sort";
 import ProductList from "./ProductList";
 const Products = () => {
   return (
@@ -11,6 +12,7 @@ const Products = () => {
                <Filter/>
           </div>
           <div className="col-lg-9 col-md-10">
+            <Sort/>
             <ProductList/>
           </div>
         </div>

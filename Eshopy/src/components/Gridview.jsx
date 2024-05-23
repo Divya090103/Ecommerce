@@ -17,7 +17,7 @@ const Gridview = ({ products }) => {
   return (
     <div className="container">
       {productChunks.map((chunk, index) => (
-        <div className="row" key={index}>
+        <div className="row mt-3" key={index}>
           {chunk.map((product, id) => (
             <div className="col-md-4" key={id}>
               <Cards product={product} />

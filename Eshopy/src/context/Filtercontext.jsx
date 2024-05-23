@@ -6,20 +6,24 @@ const Filtercontext = createContext();
 const initialstate = {
   allproducts: [],
   Filter_products: [],
-  gridview:true
+  gridview: false,
+
 };
 
 export const FiltercontextProvider = ({ children }) => {
   const { Products } = useContext(Appcontext);
   const [state, dispatch] = useReducer(Filterproducts, initialstate);
-  const setgridview=()=>{
-    dispatch({type:"set_grid_view",payload:Products});
+  const setgridview = () => {
+    dispatch({ type: "set_grid_view", payload: Products });
+  };
+  const setlistview=()=>{
+    dispatch({type:"set_list_view",payload:Products})
   }
   useEffect(() => {
     dispatch({ type: "Load_Filter_Products", payload: Products });
   }, [Products]);
   return (
-    <Filtercontext.Provider value={{ ...state ,setgridview}}>
+    <Filtercontext.Provider value={{ ...state, setgridview,setlistview }}>
       {children}
     </Filtercontext.Provider>
   );
