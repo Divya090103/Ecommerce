@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const Cards = ({ product, id }) => {
   return (
     <>
-      <div className="col-lg-3 col-md-12" key={id}>
+      <div className="col-lg-3 col-md-12 " key={id}>
         <NavLink to={`/singleproduct/${product.id}`}>
           <div className="card bg-light" style={{ width: "18rem" }}>
             <img src={product.image} className="card-img-top" alt="..." />

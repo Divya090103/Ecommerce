@@ -337,6 +337,7 @@ position:relative;
 .text-left {
   text-align: left;
 }
-.actives{
-  background-color: #65ace7;
+
+.services{
+  margin-top: calc(50% - 35%);
 }

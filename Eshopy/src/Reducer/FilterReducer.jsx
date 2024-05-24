@@ -12,15 +12,42 @@ const Filterproducts = (state, action) => {
       return {
         ...state,
         allproducts: [...action.payload],
-        Filterproducts: [...action.payload],
+        Filter_products: [...action.payload],
         gridview: true,
       };
     case "set_list_view":
       return {
         ...state,
-        allproducts: [...action.payload],
-        Filterproducts: [...action.payload],
         gridview: false,
+      };
+    case "sort_the_products":
+      let uservalue = document.getElementById("sort");
+      let sort_value = uservalue.options[uservalue.selectedIndex].value;
+      console.log(sort_value);
+      return {
+        ...state,
+        Sortingvalue: sort_value,
+      };
+    case "sorting":
+      let newsort;
+      let tempsort = [...state.Filter_products];
+      if (state.Sortingvalue === "price_asc") {
+        newsort = tempsort.sort((a, b) => a.price - b.price);
+      } else if (state.Sortingvalue === "price_desc") {
+        newsort = tempsort.sort((a, b) => b.price - a.price);
+      } else if (state.Sortingvalue === "name_asc") {
+        newsort = tempsort.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (state.Sortingvalue === "name_desc") {
+        newsort = tempsort.sort((a, b) => b.name.localeCompare(a.name));
+      }
+      return {
+        ...state,
+        Filter_products: newsort,
+        // allproducts: newsort,
+      };
+    default:
+      return {
+        ...state,
       };
   }
 };

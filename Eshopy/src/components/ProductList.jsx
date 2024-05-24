@@ -6,6 +6,6 @@ const ProductList = () => {
   const { Filter_products, gridview } = UseFiltercontext();
   if (gridview === true) {
     return <Gridview products={Filter_products} />;
-  } else return <Lisview products={Filter_products} />;
+  } else return <Lisview products={Filter_products}/>;
 };
 export default ProductList;
