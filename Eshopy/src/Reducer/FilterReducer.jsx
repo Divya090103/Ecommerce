@@ -1,3 +1,4 @@
+import { all } from "axios";
 import React, { act } from "react";
 import { useReducer } from "react";
 const Filterproducts = (state, action) => {
@@ -20,10 +21,11 @@ const Filterproducts = (state, action) => {
         ...state,
         gridview: false,
       };
+
     case "sort_the_products":
       let uservalue = document.getElementById("sort");
       let sort_value = uservalue.options[uservalue.selectedIndex].value;
-      console.log(sort_value);
+
       return {
         ...state,
         Sortingvalue: sort_value,
@@ -45,6 +47,33 @@ const Filterproducts = (state, action) => {
         Filter_products: newsort,
         // allproducts: newsort,
       };
+    case "filter_products":
+      let { allproducts } = state;
+      let tempsort2 = [...allproducts];
+      let { text } = state.filter;
+      if (text) {
+        tempsort2 = tempsort2.filter((curr) => {
+          return curr.name.includes(text);
+        });
+      }
+      return {
+        ...state,
+        Filter_products: tempsort2,
+        // allproducts: newsort,
+      };
+    case "update_filter":
+      const { name, value } = action.payload;
+      console.log("name is", name);
+      console.log("value is", value);
+
+      return {
+        ...state,
+        filter: {
+          ...state.filter,
+          [name]: value,
+        },
+      };
+
     default:
       return {
         ...state,
