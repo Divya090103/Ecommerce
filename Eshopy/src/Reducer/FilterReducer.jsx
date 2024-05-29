@@ -50,10 +50,15 @@ const Filterproducts = (state, action) => {
     case "filter_products":
       let { allproducts } = state;
       let tempsort2 = [...allproducts];
-      let { text } = state.filter;
+      let { text, category } = state.filter;
       if (text) {
         tempsort2 = tempsort2.filter((curr) => {
           return curr.name.includes(text);
+        });
+      }
+      if (category) {
+        tempsort2 = tempsort2.filter((curr) => {
+          return curr.name.includes(category);
         });
       }
       return {
@@ -63,9 +68,6 @@ const Filterproducts = (state, action) => {
       };
     case "update_filter":
       const { name, value } = action.payload;
-      console.log("name is", name);
-      console.log("value is", value);
-
       return {
         ...state,
         filter: {

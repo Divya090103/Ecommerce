@@ -10,6 +10,7 @@ const initialstate = {
   Sortingvalue: "price_asc",
   filter: {
     text: "",
+   category:""
   },
 };
 
@@ -32,9 +33,10 @@ export const FiltercontextProvider = ({ children }) => {
   const handlechange = (event) => {
     let name = event.target.name;
     let value = event.target.value;
-
+      
     dispatch({ type: "update_filter", payload: { name, value } });
   };
+
 
   //to sort the products
   useEffect(() => {
@@ -48,7 +50,13 @@ export const FiltercontextProvider = ({ children }) => {
   }, [Products]);
   return (
     <Filtercontext.Provider
-      value={{ ...state, setgridview, setlistview, sorting, handlechange }}
+      value={{
+        ...state,
+        setgridview,
+        setlistview,
+        sorting,
+        handlechange,
+      }}
     >
       {children}
     </Filtercontext.Provider>
