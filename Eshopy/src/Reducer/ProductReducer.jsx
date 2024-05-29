@@ -34,7 +34,7 @@ const ProductReducer = (state, action) => {
         ...state,
         isloading: false,
         Products: action.payload,
-        FeaturedProduct: FeaturedData,
+        FeaturedProduct: action.payload,
         isError: "false",
       };
     case "Error":

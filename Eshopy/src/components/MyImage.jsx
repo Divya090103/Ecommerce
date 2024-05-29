@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-const MyImage = ({ myimage = [{ url: "myimage[0].url" }] }) => {
-  console.log(myimage);
-  const [state, setstate] = useState(myimage[0].url);
+const MyImage = ({ myimage }) => {
+  // console.log(myimage);
+  const [state, setstate] = useState(myimage[0]);
 
   return (
     <>
@@ -10,11 +10,7 @@ const MyImage = ({ myimage = [{ url: "myimage[0].url" }] }) => {
           {myimage.map((curr, ind) => {
             return (
               <figure>
-                <img
-                  src={curr.url}
-                  key={ind}
-                  onClick={() => setstate(curr.url)}
-                />
+                <img src={curr} key={ind} onClick={() => setstate(curr)} />
               </figure>
             );
           })}

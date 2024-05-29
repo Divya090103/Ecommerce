@@ -21,7 +21,7 @@ const Carousel = () => {
           <Slider {...settings}>
             <div className="crousel-image p-1">
               {" "}
-              <img src="/images/w3.jpg" />
+              <img src="/images/b1.jpg" />
               <div className="overlay"></div>
             </div>
             <div className="crousel-image p-1">
@@ -31,12 +31,12 @@ const Carousel = () => {
             </div>
             <div className="crousel-image p-1">
               {" "}
-              <img src="/images/w4.jpg" />
+              <img src="/images/b4.jpg" />
               <div className="overlay"></div>
             </div>
             <div className="crousel-image p-1">
               {" "}
-              <img src="/images/w6.jpg" />
+              <img src="/images/.jpg" />
               <div className="overlay"></div>
             </div>
             <div className="crousel-image p-1">

@@ -14,13 +14,12 @@ const initialstate = {
 };
 const Appprovider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialstate);
-  // const [arr, setArr] = useState([])
   const getapi = async (url) => {
     dispatch({ type: "LOADING_PRODUCTS" });
     try {
       const res = await axios.get(url);
       const product = res.data;
-      dispatch({ type: "Set_Api_data", payload: product });
+      dispatch({ type: "Set_Api_data", payload: product.product });
     } catch (error) {
       dispatch({ type: "Single_Error" });
     }
@@ -31,14 +30,14 @@ const Appprovider = ({ children }) => {
     dispatch({ type: "LOADING_Single_PRODUCTS" });
     try {
       const res = await axios.get(url);
-      const singleproduct = res.data;
-      dispatch({ type: "Set_Single_data", payload: singleproduct });
+      const singleProduct = res.data;
+      dispatch({ type: "Set_Single_data", payload: singleProduct.product });
     } catch (error) {
       dispatch({ type: "Single_product_Error" });
     }
   };
   useEffect(() => {
-    getapi("https://api.pujakaitem.com/api/products");
+    getapi("http://localhost:3000/api/products");
   }, []);
   return (
     <Appcontext.Provider value={{ ...state, getsingleproduct }}>

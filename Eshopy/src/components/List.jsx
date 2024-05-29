@@ -4,7 +4,7 @@ const List = ({ product, id }) => {
   return (
     <>
       <div className="col-lg-4 col-md-12">
-        <img src={product.image} className="image" alt="" />
+        <img src={product.images} className="image" alt="" />
       </div>
       <div className="col-lg-8 col-md-12 text-left">
         <h2>{product.name}</h2>
@@ -13,7 +13,7 @@ const List = ({ product, id }) => {
             style: "currency",
             currency: "INR",
             maximumFractionDigits: 2,
-          }).format(product.price / 100)}
+          }).format(product.price / 10)}
         </h5>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum enim eius
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente

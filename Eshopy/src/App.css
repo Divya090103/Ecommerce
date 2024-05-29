@@ -224,6 +224,19 @@ position:relative;
   background-color: #eceff4 !important;
   border: none !important;
 }
+.card-text{
+  text-decoration: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 25px;
+}
+.card-img-top{
+  width: fit-content;
+  height:200px;
+
+}
+.c{
+  background-color: transparent !important;
+}
 
 .form{
   /* background-color: red;/ */

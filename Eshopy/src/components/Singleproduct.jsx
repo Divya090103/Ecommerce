@@ -12,78 +12,45 @@ import AddCart from "./AddCart";
 const Singleproduct = () => {
   //get element from the url
   const { id } = useParams();
-  const API = "https://api.pujakaitem.com/api/products";
-  console.log("the id is" + id);
-  const { getsingleproduct, issingleload, singleproduct, singleerror } =
+  const API = "http://localhost:3000/api/products";
+  const { getsingleproduct, issingleload, singleproduct } =
     useContext(Appcontext);
-  console.log(singleproduct.image);
   useEffect(() => {
-    getsingleproduct(`${API}?id=${id}`);
+    getsingleproduct(`${API}/?id=${id}`);
   }, []);
+  console.log(`${API}/id=${id}`);
 
+  const arr = singleproduct[0];
+  console.log("this is an", id);
+  console.log("array is fetch", arr);
   return (
     <>
       <section>
-        <PageNavigation />
-        <div className="container text-left mt-5">
+        <PageNavigation name={arr.name} />
+        <div className="container mt-5">
           <div className="row">
-            <div className="col-lg-6 col-md-12">
-              <MyImage myimage={singleproduct.image} />
+            <div className="col-lg-6 col-md-6">
+              <MyImage myimage={arr.images} />
             </div>
-            <div className="col-lg-6 col-md-12">
-              <div>
-                <h1>{singleproduct?.name}</h1>
-                <Rating
-                  stars={singleproduct?.stars}
-                  review={singleproduct?.reviews}
-                />
-                <p className="text-secondary">
-                  MRP:
-                  <del>
-                    {" "}
-                    {new Intl.NumberFormat("en-IN", {
-                      style: "currency",
-                      currency: "INR",
-                      maximumFractionDigits: 2,
-                    }).format((singleproduct.price + 200000) / 100)}
-                  </del>
-                </p>
-                <h5 className="text-primary">
-                  Deal of the Day:
-                  {new Intl.NumberFormat("en-IN", {
-                    style: "currency",
-                    currency: "INR",
-                    maximumFractionDigits: 2,
-                  }).format(singleproduct.price / 100)}
-                </h5>
-                <p className="text-secondary">{singleproduct?.description}</p>
-              </div>
-              <div className="d-flex align-items-center justify-content-between mt-4">
-                <div className="text-center">
-                  <TbReplace className="icon fs-2" />
-                  <p>30 Days Replacement</p>
-                </div>
-                <div className="text-center">
-                  <FaTruck className="icon fs-2" />
-                  <p>Free Delivery</p>
-                </div>
-                <div className="text-center">
-                  <PiSealCheckFill className="icon fs-2" />
-                  <p>2year Warranty</p>
-                </div>
-                <div className="text-center">
-                  <FaTruck className="icon fs-2" />
-                  <p>Elitte Delivery</p>
-                </div>
-              </div>
+            <div className="col-lg-6 col-md-6">
+              <h3>{arr.name}</h3>
+              <Rating stars={arr.stars} review={arr.reviews} />
+              <h5>{arr.description}</h5>
+              <h3>
+                {new Intl.NumberFormat("en-IN", {
+                  style: "currency",
+                  currency: "INR",
+                  maximumFractionDigits: 2,
+                }).format(arr.price)}
+              </h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Sapiente alias culpa repudiandae distinctio, asperiores iste
+                suscipit dolorem fugit odio aperiam.
+              </p>
+              <h4>Available:{arr.stock}</h4>
               <hr />
-              <div>
-                <h5>Available:In stock</h5>
-                <h5>Brand:{singleproduct?.company}</h5>
-              </div>
-              <hr />
-              <div>{singleproduct.stock>0&&<AddCart product={singleproduct} />}</div>
-
+              <AddCart product={arr} />
             </div>
           </div>
         </div>
