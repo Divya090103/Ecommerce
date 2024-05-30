@@ -3,8 +3,7 @@ import { UseFiltercontext } from "../context/Filtercontext";
 import { all } from "axios";
 const Filter = () => {
   const {
-    filter: 
-    { text,category},
+    filter: { text, category, companys },
     handlechange,
     allproducts,
   } = UseFiltercontext();
@@ -14,6 +13,15 @@ const Filter = () => {
     });
     return [...new Set(new_val)];
   };
+  const getallcompany = (products) => {
+    let new_comp = products.map((curr) => {
+      return curr.company;
+    });
+    return [...new Set(new_comp)];
+  };
+
+  const company = getallcompany(allproducts);
+
   const Category = getallcategory(allproducts);
   return (
     <>
@@ -46,6 +54,18 @@ const Filter = () => {
               </p>
             );
           })}
+          <h3>Category</h3>
+          <h5>
+            <select name="companys" onChange={handlechange}>
+              {company.map((curr) => {
+                return (
+                  <option key={curr} value={curr}>
+                    {curr}
+                  </option>
+                );
+              })}
+            </select>
+          </h5>
         </div>
       </section>
     </>

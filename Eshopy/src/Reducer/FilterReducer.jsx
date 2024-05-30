@@ -50,7 +50,7 @@ const Filterproducts = (state, action) => {
     case "filter_products":
       let { allproducts } = state;
       let tempsort2 = [...allproducts];
-      let { text, category } = state.filter;
+      let { text, category, companys } = state.filter;
       if (text) {
         tempsort2 = tempsort2.filter((curr) => {
           return curr.name.includes(text);
@@ -60,6 +60,12 @@ const Filterproducts = (state, action) => {
         tempsort2 = tempsort2.filter((curr) => {
           return curr.name.includes(category);
         });
+      }
+      if (companys) {
+        tempsort2 = tempsort2.filter((curr) => {
+          return curr.company.includes(companys);
+        });
+        console.log(tempsort2);
       }
       return {
         ...state,

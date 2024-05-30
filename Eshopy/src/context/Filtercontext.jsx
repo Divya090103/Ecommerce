@@ -10,7 +10,8 @@ const initialstate = {
   Sortingvalue: "price_asc",
   filter: {
     text: "",
-   category:""
+   category:"",
+   companys:""
   },
 };
 
@@ -33,7 +34,7 @@ export const FiltercontextProvider = ({ children }) => {
   const handlechange = (event) => {
     let name = event.target.name;
     let value = event.target.value;
-      
+    
     dispatch({ type: "update_filter", payload: { name, value } });
   };
 
