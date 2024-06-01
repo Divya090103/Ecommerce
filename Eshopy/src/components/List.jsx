@@ -13,7 +13,7 @@ const List = ({ product, id }) => {
             style: "currency",
             currency: "INR",
             maximumFractionDigits: 2,
-          }).format(product.price / 10)}
+          }).format(product.price)}
         </h5>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum enim eius
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente

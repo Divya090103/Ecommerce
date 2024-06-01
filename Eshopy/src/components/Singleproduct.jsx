@@ -34,7 +34,7 @@ const Singleproduct = () => {
             </div>
             <div className="col-lg-6 col-md-6">
               <h3>{arr.name}</h3>
-              <Rating stars={arr.stars} review={arr.reviews} />
+
               <h5>{arr.description}</h5>
               <h3>
                 {new Intl.NumberFormat("en-IN", {
@@ -43,6 +43,7 @@ const Singleproduct = () => {
                   maximumFractionDigits: 2,
                 }).format(arr.price)}
               </h3>
+              <Rating stars={arr.stars} review={arr.reviews} />
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Sapiente alias culpa repudiandae distinctio, asperiores iste

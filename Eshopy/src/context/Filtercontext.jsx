@@ -10,8 +10,8 @@ const initialstate = {
   Sortingvalue: "price_asc",
   filter: {
     text: "",
-   category:"",
-   companys:""
+    category: "",
+    companys: "",
   },
 };
 
@@ -30,14 +30,18 @@ export const FiltercontextProvider = ({ children }) => {
   const sorting = () => {
     dispatch({ type: "sort_the_products" });
   };
+  //to clear filters
+  const clearfilter = (e) => {
+    dispatch({ type: "Clear_filter", payload: Products });
+  };
   //updat on change
   const handlechange = (event) => {
+    console.log(event.target.value);
     let name = event.target.name;
     let value = event.target.value;
-    
+    console.log("name is", name, "the value is", value);
     dispatch({ type: "update_filter", payload: { name, value } });
   };
-
 
   //to sort the products
   useEffect(() => {
@@ -57,6 +61,7 @@ export const FiltercontextProvider = ({ children }) => {
         setlistview,
         sorting,
         handlechange,
+        clearfilter,
       }}
     >
       {children}

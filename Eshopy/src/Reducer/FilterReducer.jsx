@@ -47,6 +47,16 @@ const Filterproducts = (state, action) => {
         Filter_products: newsort,
         // allproducts: newsort,
       };
+    //claer
+    case "Clear_filter":
+      return {
+        ...state,
+        filter: {
+          text: "",
+          category: "",
+          companys: "",
+        },
+      };
     case "filter_products":
       let { allproducts } = state;
       let tempsort2 = [...allproducts];
@@ -65,7 +75,6 @@ const Filterproducts = (state, action) => {
         tempsort2 = tempsort2.filter((curr) => {
           return curr.company.includes(companys);
         });
-        console.log(tempsort2);
       }
       return {
         ...state,

@@ -355,7 +355,10 @@ position:relative;
   margin-top: calc(50% - 35%);
 }
 
-
+.none{
+  background-color: transparent;
+  border: none;
+}
 /* CSS */
 .button-33 {
   background-color: #c2fbd7;
