@@ -5,7 +5,7 @@ import { FaCheck } from "react-icons/fa";
 import { useState } from "react";
 const Filter = () => {
   const {
-    filter: { text, category, companys },
+    filter: { text, category, companys, minprice, maxprice, price },
     handlechange,
     allproducts,
     clearfilter,
@@ -35,9 +35,19 @@ const Filter = () => {
 
     return [...uniqueColors];
   };
+  const getallprice = (product) => {
+    const allprice = product.map((curr) => {
+      return curr.price;
+    });
+
+    return [...new Set(allprice)];
+  };
+
   const colors = getallcolor(allproducts);
 
   const company = getallcompany(allproducts);
+  const pricearr = getallprice(allproducts);
+  const maxi = Math.max(...pricearr);
 
   const Category = getallcategory(allproducts);
   const [colr, setcolor] = useState();
@@ -59,7 +69,7 @@ const Filter = () => {
             return (
               <p key={index}>
                 <button
-                  className="button-33 "
+                  className="button-33"
                   role="button"
                   type="button"
                   name="category"
@@ -72,7 +82,7 @@ const Filter = () => {
               </p>
             );
           })}
-          <h3 className="mt-1">Category</h3>
+          <h5 className="mt-1">Company</h5>
           <h5>
             <select name="companys" onChange={handlechange}>
               <option>ALL</option>
@@ -85,7 +95,7 @@ const Filter = () => {
               })}
             </select>
           </h5>
-          <h3 className="mt-1">Colors:</h3>
+          <h5 className="mt-1">Colors:</h5>
 
           {colors.map((color, ing) => {
             if (color === "All") {
@@ -119,8 +129,22 @@ const Filter = () => {
               </button>
             );
           })}
-
-          <button type="button" onClick={clearfilter} className="button-29">
+          <div>
+            <h5 className="mt-2">Price : {price}</h5>
+            <input
+              type="range"
+              onChange={handlechange}
+              min={minprice}
+              max={maxi}
+              value={price}
+              name="price"
+            />
+          </div>
+          <button
+            type="button"
+            onClick={clearfilter}
+            className="button-29 mt-2"
+          >
             Clear Filter
           </button>
         </div>

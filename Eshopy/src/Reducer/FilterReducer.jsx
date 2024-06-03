@@ -55,12 +55,19 @@ const Filterproducts = (state, action) => {
           text: "",
           category: "",
           companys: "",
+          minprice:0,
+          price:0,
         },
       };
     case "filter_products":
       let { allproducts } = state;
       let tempsort2 = [...allproducts];
-      let { text, category, companys } = state.filter;
+      let { text, category, companys, price } = state.filter;
+      if(price){
+        tempsort2=tempsort2.filter((curr)=>{
+          return curr.price<=price
+        })
+      }
       if (text) {
         tempsort2 = tempsort2.filter((curr) => {
           return curr.name.includes(text);
@@ -79,7 +86,6 @@ const Filterproducts = (state, action) => {
       return {
         ...state,
         Filter_products: tempsort2,
-        // allproducts: newsort,
       };
     case "update_filter":
       const { name, value } = action.payload;

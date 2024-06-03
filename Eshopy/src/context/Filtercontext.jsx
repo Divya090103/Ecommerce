@@ -12,6 +12,8 @@ const initialstate = {
     text: "",
     category: "",
     companys: "",
+    minprice: 400,
+    price: 0,
   },
 };
 
@@ -39,7 +41,6 @@ export const FiltercontextProvider = ({ children }) => {
     console.log(event.target.value);
     let name = event.target.name;
     let value = event.target.value;
-    console.log("name is", name, "the value is", value);
     dispatch({ type: "update_filter", payload: { name, value } });
   };
 
