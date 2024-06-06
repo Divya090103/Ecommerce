@@ -11,29 +11,33 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import { Appprovider, Appcontext } from "./context/Productcontext";
 import { FiltercontextProvider } from "./context/Filtercontext";
+import { Cartprovider } from "./context/Cartcontext";
 function App() {
   return (
     <Appprovider>
       <FiltercontextProvider>
-        <BrowserRouter>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Hme />}>
-              {" "}
-            </Route>
-            <Route path="/about" element={<About />}></Route>
-            <Route path="/product" element={<Products />}></Route>
-            <Route path="/contact" element={<Contact />}></Route>
+        <Cartprovider>
+          <BrowserRouter>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Hme />}>
+                {" "}
+              </Route>
+              <Route path="/about" element={<About />}></Route>
+              <Route path="/product" element={<Products />}></Route>
+              <Route path="/contact" element={<Contact />}></Route>
 
-            <Route
-              path="/singleproduct/:id"
-              element={<Singleproduct />}
-            ></Route>
-            <Route path="/cart" element={<Cart />}></Route>
-            <Route path="*" element={<Error />}></Route>
-          </Routes>
-          <Footer />
-        </BrowserRouter>
+              <Route
+                path="/singleproduct/:id"
+                element={<Singleproduct />}
+              ></Route>
+
+              <Route path="/cart" element={<Cart />}></Route>
+              <Route path="*" element={<Error />}></Route>
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </Cartprovider>
       </FiltercontextProvider>
     </Appprovider>
   );

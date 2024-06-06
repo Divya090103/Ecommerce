@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import Counter from "./Counter";
 import Singleproduct from "./Singleproduct";
+import { NavLink } from "react-router-dom";
+import { Cartprovider, Cartcontext } from "../context/Cartcontext";
 const AddCart = ({ product }) => {
   const { id, stock, colors } = product;
   console.log(stock);
   console.log(colors);
   const [colr, setcolor] = useState(colors[0]);
-
+  const { addcart } = useContext(Cartcontext);
   return (
     <>
       <div>
@@ -33,9 +35,10 @@ const AddCart = ({ product }) => {
             );
           })}
         </div>
-        {stock > 0 && <Counter stock={stock} />}
         <br />
-        <button className="button-29">ADD TO CART</button>
+        <NavLink to="/cart" onClick={() => addcart({ product, colr })}>
+          <button className="button-29">ADD TO CART</button>
+        </NavLink>
       </div>
     </>
   );
