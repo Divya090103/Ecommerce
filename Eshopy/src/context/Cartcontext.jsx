@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import CartReducer from "../Reducer/CartReducer";
+import CartReducer from "../Reducer/Cartreducer";
 const Cartcontext = createContext();
 const intialstate = {
   cart: [],
@@ -8,10 +8,9 @@ const intialstate = {
   shipping_fee: 200,
 };
 const Cartprovider = ({ children }) => {
-  const [state, dispatch] = useReducer(CartReducer, intialstate);
-  // Define the addcart function here
-  const addcart = ({ product, colr }) => {
-    console.log(product);
+  const [state, dispatch] = useReducer(CartReducer, intialstate); // Define the addcart function here
+  const addcart = (product, colr) => {
+    dispatch({ type: "ADD_TO_CART", payload: { product, colr } });
   };
 
   return (

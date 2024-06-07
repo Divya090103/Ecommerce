@@ -18,11 +18,9 @@ const Singleproduct = () => {
   useEffect(() => {
     getsingleproduct(`${API}/?id=${id}`);
   }, []);
-  console.log(`${API}/id=${id}`);
 
   const arr = singleproduct[0];
-  console.log("this is an", id);
-  console.log("array is fetch", arr);
+
   return (
     <>
       <section>

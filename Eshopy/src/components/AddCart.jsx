@@ -36,7 +36,7 @@ const AddCart = ({ product }) => {
           })}
         </div>
         <br />
-        <NavLink to="/cart" onClick={() => addcart({ product, colr })}>
+        <NavLink to="/cart" onClick={() => addcart(product, colr)}>
           <button className="button-29">ADD TO CART</button>
         </NavLink>
       </div>
