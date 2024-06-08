@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import Item from "./Item";
 import { Cartcontext } from "../context/Cartcontext";
 const Cart = () => {
-  const { cart, shipping_fee } = useContext(Cartcontext);
+  const { cart } = useContext(Cartcontext);
   return (
     <>
       <section className="container">
         <div className="mt-5">
-          <div className="d-flex justify-content-evenly">
+          <div className="d-flex justify-content-between">
             <h5>Item</h5>
             <h5 className="cart-hide">Price</h5>
             <h5>Quantity</h5>
